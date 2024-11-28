@@ -14,7 +14,8 @@ from ta.momentum import RSIIndicator
 from ta.trend import SMAIndicator, MACD
 import logging
 
-yf.set_tz_cache_location(None)
+import shutil
+shutil.rmtree("/home/appuser/.cache/py-yfinance", ignore_errors=True)
 
 # Initialize logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
