@@ -76,7 +76,7 @@ def fetch_stock_data(symbol, start_date, end_date):
         st.write(data)
         if data.empty:
             st.warning(f"No data available for {symbol} between {start_date} and {end_date}.")
-        return data
+        return data.flatten()
     except Exception as e:
         st.error(f"Error fetching data: {str(e)}")
         return pd.DataFrame()
