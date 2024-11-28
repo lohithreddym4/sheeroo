@@ -73,6 +73,7 @@ def fetch_stock_data(symbol, start_date, end_date):
     """Fetch historical stock data for a specific symbol within a date range."""
     try:
         data = yf.download(symbol, start=start_date, end=end_date)
+        st.write(data)
         if data.empty:
             st.warning(f"No data available for {symbol} between {start_date} and {end_date}.")
         return data
