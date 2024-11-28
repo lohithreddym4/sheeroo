@@ -13,9 +13,13 @@ from sklearn.preprocessing import MinMaxScaler
 from ta.momentum import RSIIndicator
 from ta.trend import SMAIndicator, MACD
 import logging
-
+import os
 import shutil
-shutil.rmtree("/home/appuser/.cache/py-yfinance", ignore_errors=True)
+
+# Clear existing cache directory if it exists
+cache_dir = "/home/appuser/.cache/py-yfinance"
+shutil.rmtree(cache_dir, ignore_errors=True)
+os.makedirs(cache_dir, exist_ok=True)
 
 # Initialize logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
