@@ -76,7 +76,7 @@ def fetch_stock_data(symbol, start_date, end_date):
         st.write(data)
         if data.empty:
             st.warning(f"No data available for {symbol} between {start_date} and {end_date}.")
-        return data.flatten()
+        return data.reshape(-1)
     except Exception as e:
         st.error(f"Error fetching data: {str(e)}")
         return pd.DataFrame()
@@ -95,6 +95,7 @@ def fetch_market_data():
     for name, symbol in indices.items():
         try:
             ticker = yf.Ticker(symbol)
+            
             data = ticker.history(period="1d")
             if not data.empty:
                 close_price = data['Close'].iloc[-1]
@@ -107,6 +108,7 @@ def fetch_market_data():
                 }
         except Exception as e:
             st.error(f"Error fetching data for {name}: {str(e)}")
+    st.write(market_data)
     return market_data
 
 def prediction(symbol, days=120):
