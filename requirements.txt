@@ -14,3 +14,4 @@ nltk
 plotly
 tensorflow
 keras
+appdirs
