@@ -10,3 +10,4 @@ pytest
 jupyter
 python-dotenv
 gnews
+nltk
