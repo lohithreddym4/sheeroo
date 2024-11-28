@@ -73,10 +73,11 @@ def fetch_stock_data(symbol, start_date, end_date):
     """Fetch historical stock data for a specific symbol within a date range."""
     try:
         data = yf.download(symbol, start=start_date, end=end_date)
-        st.write(data)
+
+
         if data.empty:
             st.warning(f"No data available for {symbol} between {start_date} and {end_date}.")
-        return data.reshape(-1)
+        return data
     except Exception as e:
         st.error(f"Error fetching data: {str(e)}")
         return pd.DataFrame()
@@ -108,7 +109,6 @@ def fetch_market_data():
                 }
         except Exception as e:
             st.error(f"Error fetching data for {name}: {str(e)}")
-    st.write(market_data)
     return market_data
 
 def prediction(symbol, days=120):
