@@ -1,4 +1,4 @@
-import yfinance as yf
+
 from gnews import GNews
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import numpy as np
@@ -16,10 +16,9 @@ import logging
 import os
 import shutil
 
-# Clear existing cache directory if it exists
-cache_dir = "/home/appuser/.cache/py-yfinance"
-shutil.rmtree(cache_dir, ignore_errors=True)
-os.makedirs(cache_dir, exist_ok=True)
+import appdirs as ad
+ad.user_cache_dir = lambda *args: "/tmp"
+import yfinance as yf
 
 # Initialize logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
