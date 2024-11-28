@@ -8,3 +8,4 @@ streamlit
 scikit-learn
 ta
 keras
+tensorflow
