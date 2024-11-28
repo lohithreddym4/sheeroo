@@ -69,7 +69,6 @@ option = st.sidebar.radio(
     help="Select the type of stock analysis you'd like to perform."
 )
 
-@st.cache_data(ttl=3600)
 def fetch_stock_data(symbol, start_date, end_date):
     """Fetch historical stock data for a specific symbol within a date range."""
     try:
