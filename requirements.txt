@@ -9,3 +9,4 @@ nsetools
 pytest
 jupyter
 python-dotenv
+gnews
