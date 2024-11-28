@@ -12,6 +12,5 @@ python-dotenv==1.0.0
 gnews
 nltk
 plotly
-tensorflow==2.7.0
-keras==2.6.0
-distutils
+tensorflow
+keras
