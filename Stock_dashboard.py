@@ -145,6 +145,7 @@ def prediction(symbol, days=120):
         
         # Predict future prices
         last_data = X.iloc[-1].values.reshape(1, -1)
+        last_data = last_data.flatten()
         predictions = []
         for _ in range(days):
             pred = model.predict(last_data)[0]
